@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awards & Training | Wangdi Wangdi</title>
+    <!-- Google Fonts: Lato with multiple weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c5530;
+            --secondary-color: #4a7c59;
+            --accent-color: #7db46c;
+            --light-green: #a8d8a8;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --background-light: #f7fafc;
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+        }
+
+        /* Navigation Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(44, 85, 48, 0.1);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links li a:hover::after,
+        .nav-links li a.active::after {
+            width: 100%;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links li a[href="awards.html"] {
+            color: var(--primary-color);
+        }
+
+        .nav-links li a[href="awards.html"]::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 3px 0;
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* Hero Image Section */
+        .field-hero {
+            margin-top: 80px;
+            height: 50vh;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .field-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .field-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(44, 85, 48, 0.3), rgba(125, 180, 108, 0.2));
+            z-index: 1;
+        }
+
+        /* Awards Section */
+        .awards {
+            padding: 4rem 5% 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .awards h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .awards h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Section Photos */
+        .section-photo {
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .section-photo img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .section-photo:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Section Titles */
+        .section-title {
+            margin: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        /* Awards Grid */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .award-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(125, 180, 108, 0.05), rgba(44, 85, 48, 0.05));
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .award-card:hover::before {
+            width: 100%;
+        }
+
+        .award-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-left-color: var(--primary-color);
+        }
+
+        .award-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .award-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Special styling for major awards */
+        .major-award {
+            background: linear-gradient(135deg, var(--white), rgba(125, 180, 108, 0.02));
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 8px 25px rgba(44, 85, 48, 0.1);
+        }
+
+        .major-award h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        /* Certificate Images Grid */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .certificate-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .certificate-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .certificate-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .certificate-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(44, 85, 48, 0.8));
+            color: var(--white);
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .certificate-item:hover .certificate-overlay {
+            transform: translateY(0);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--white);
+            padding: 3rem 0;
+            margin: 4rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--light-green);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 1rem 5%;
+                gap: 1rem;
+                box-shadow: var(--shadow);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .field-hero {
+                height: 30vh;
+            }
+
+            .awards h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .awards {
+                padding: 2rem 3%;
+            }
+
+            .awards h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .award-card {
+                padding: 1.5rem;
+            }
+
+            .award-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--background-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar" id="navbar">
+            <a href="index.html" class="logo">Wangdi</a>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research_projects.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="awards.html" class="active">Awards</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Fieldwork Hero Image -->
+    <section class="field-hero" data-aos="zoom-in" data-aos-duration="1000">
+        <img src="images/fieldwork.jpg" alt="Field Work - Conservation in Action">
+    </section>
+
+    <!-- Awards and Training Section -->
+    <section class="awards">
+        <div class="container">
+            <h1 data-aos="fade-down" data-aos-duration="1000">Awards & Professional Training</h1>
+
+            <!-- Achievement Stats -->
+            <div class="stats-section" data-aos="fade-up" data-aos-delay="200">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <i class="fas fa-trophy stat-icon"></i>
+                        <span class="stat-number">2</span>
+                        <div class="stat-label">Major Awards</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-certificate stat-icon"></i>
+                        <span class="stat-number">8+</span>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-graduation-cap stat-icon"></i>
+                        <span class="stat-number">83%</span>
+                        <div class="stat-label">Training Score</div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-medal stat-icon"></i>
+                        <span class="stat-number">5+</span>
+                        <div class="stat-label">Years Training</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Degree Receiving Photo -->
+            <div class="section-photo" data-aos="fade-up" data-aos-delay="300">
+                <img src="images/degree_ceremony.jpg" alt="Receiving Degree Certificate">
+            </div>
+
+            <!-- Major Awards Section -->
+            <div class="section-title" data-aos="fade-right" data-aos-delay="400">
+                <h2><i class="fas fa-trophy"></i> Major Awards & Scholarships</h2>
+            </div>
+
+            <div class="awards-grid">
+                <div class="award-card major-award" data-aos="fade-up" data-aos-delay="500">
+                    <h3><i class="fas fa-graduation-cap" style="color: var(--accent-color);"></i> SAF-Madanjeet Singh Scholarship (2017–2021)</h3>
+                    <p>Received prestigious scholarship for Bachelor of Science (Hons) in Forestry, College of Natural Resources, Royal University of Bhutan. This highly competitive scholarship recognizes academic excellence and commitment to environmental conservation.</p>
+                </div>
+                <div class="award-card major-award" data-aos="fade-up" data-aos-delay="600">
+                    <h3><i class="fas fa-flask" style="color: var(--accent-color);"></i> Research Training Practice Scholarship (Charles Darwin University)</h3>
+                    <p>Selected for Research Excellence Scholarship in Environmental Science (pending confirmation). This opportunity recognizes outstanding research potential and commitment to advancing ecological knowledge.</p>
+                </div>
+            </div>
+
+            <!-- Certificate Images -->
+            <div class="certificates-grid" data-aos="fade-up" data-aos-delay="700">
+                <div class="certificate-item">
+                    <img src="images/certificate1.jpg" alt="Professional Certification 1">
+                    <div class="certificate-overlay">
+                        <h4>Professional Training Certificate</h4>
+                        <p>Advanced conservation techniques</p>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="images/certificate2.jpg" alt="Professional Certification 2">
+                    <div class="certificate-overlay">
+                        <h4>GIS & Remote Sensing</h4>
+                        <p>Spatial analysis certification</p>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="images/certificate3.jpg" alt="Professional Certification 3">
+                    <div class="certificate-overlay">
+                        <h4>Ecological Monitoring</h4>
+                        <p>Biodiversity assessment skills</p>
+                    </div>
+                </div>
+                <div class="certificate-item">
+                    <img src="images/certificate4.jpg" alt="Professional Certification 4">
+                    <div class="certificate-overlay">
+                        <h4>Research Excellence</h4>
+                        <p>Advanced research methodologies</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Trainings Section -->
+            <div class="section-title" data-aos="fade-left" data-aos-delay="800">
+                <h2><i class="fas fa-book-open"></i> Professional Training & Certifications</h2>
+            </div>
+
+            <div class="awards-grid">
+                <div class="award-card" data-aos="zoom-in" data-aos-delay="900">
+                    <h3><i class="fas fa-university"></i> Foundational In-service Training (FIT I) – RIM, Bhutan (2023)</h3>
+                    <p>Developed comprehensive civil service competencies with exceptional performance, achieving a final score of 83%. This training enhanced leadership, governance, and public service delivery skills.</p>
+                </div>
+                <div class="award-card" data-aos="zoom-in" data-aos-delay="1000">
+                    <h3><i class="fas fa-binoculars"></i> Ecological Monitoring – MOOC</h3>
+                    <p>Advanced skills in ecosystem monitoring and biodiversity data collection techniques. Covers field methods, data analysis, and reporting standards for ecological assessments.</p>
+                </div>
+                <div class="award-card" data-aos="zoom-in" data-aos-delay="1100">
+                    <h3><i class="fas fa-map"></i> Planning for Conservation – MOOC</h3>
+                    <p>Comprehensive techniques for strategic conservation planning and action frameworks. Includes stakeholder engagement, priority setting, and implementation strategies.</p>
+                </div>
+                <div class="award-card" data-aos="zoom-in" data-aos-delay="1200">
+                    <h3><i class="fas fa-tree"></i> Land in Focus – Forest Ecosystems – MOOC</h3>
+                    <p>Remote sensing and spatial data analysis for forest ecosystems. Advanced techniques in satellite imagery analysis, forest monitoring, and change detection.</p>
+                </div>
+                <div class="award-card" data-aos="zoom-in" data-aos-delay="1300">
+                    <h3><i class="fas fa-seedling"></i> Ecosystem Restoration – MOOC</h3>
+                    <p>Principles and methodologies for restoring degraded ecosystems. Covers restoration planning, implementation techniques, and monitoring protocols.</p>
+                </div>
+                <div class="award-card" data-aos="zoom-in" data-aos-delay="1400">
+                    <h3><i class="fas fa-globe"></i> Integrated Spatial Planning for Biodiversity and Climate Resilience – MOOC</h3>
+                    <p>Advanced spatial planning techniques integrating biodiversity conservation with climate adaptation strategies for landscape-scale management.</p>
+                </div>
+                <div class="award-card" data-aos="zoom-in" data-aos-delay="1500">
+                    <h3><i class="fas fa-database"></i> Using Spatial Data for Biodiversity – MOOC</h3>
+                    <p>Specialized training in spatial data applications for biodiversity research and conservation planning using modern GIS and remote sensing technologies.</p>
+                </div>
+                <div class="award-card" data-aos="zoom-in" data-aos-delay="1600">
+                    <h3><i class="fas fa-laptop"></i> G-Suite, OFS, FIRMS, SDSS Training</h3>
+                    <p>Department of Forests and Park Services, Bhutan. Comprehensive digital tools training for forest management, monitoring systems, and data management platforms.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Scroll to top button -->
+    <a href="#" class="scroll-to-top" id="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Wangdi Wangdi | <a href="mailto:wangdiues@gmail.com"><i class="fas fa-envelope"></i> wangdiues@gmail.com</a> | <a href="https://www.linkedin.com/in/wangdi-wangdi/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+    </footer>
+
+    <!-- AOS Script for Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100,
+            delay: 100
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            // Animate hamburger menu
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            if (navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans.forEach(span => {
+                    span.style.transform = '';
+                    span.style.opacity = '';
+                });
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                const spans = mobileMenuToggle.querySelectorAll('span');
+                spans.forEach(span => {
+                    span.style.transform = '';
+                    span.style.opacity = '';
+                });
+            }
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add scrolled class for styling
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Hide/show navbar on scroll
+            if (currentScroll > lastScrollTop && currentScroll > 200) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter animation for stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = counter.textContent;
+                const numericTarget = parseInt(target.replace(/[^\d]/g, ''));
+                const suffix = target.replace(/[\d]/g, '');
+                
+                if (numericTarget) {
+                    let current = 0;
+                    const increment = numericTarget / 30;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= numericTarget) {
+                            counter.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current) + suffix;
+                        }
+                    }, 50);
+                }
+            });
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(statsSection);
+        }
+
+        // Error handling for missing images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                if (this.alt.includes('Certificate') || this.alt.includes('Training')) {
+                    this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23f0f0f0"/><rect x="20" y="20" width="360" height="260" fill="%23fff" stroke="%2343A047" stroke-width="3"/><text x="200" y="120" font-family="Arial" font-size="18" fill="%2343A047" text-anchor="middle" font-weight="bold">CERTIFICATE</text><text x="200" y="150" font-family="Arial" font-size="14" fill="%23666" text-anchor="middle">Professional Training</text><text x="200" y="180" font-family="Arial" font-size="12" fill="%23999" text-anchor="middle">Achievement Recognition</text></svg>';
+                } else if (this.alt.includes('Field') || this.alt.includes('Degree')) {
+                    this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"><rect width="600" height="400" fill="%23E8F5E8"/><circle cx="150" cy="100" r="40" fill="%2343A047"/><rect x="50" y="200" width="500" height="150" fill="%234CAF50" opacity="0.7"/><text x="300" y="320" font-family="Arial" font-size="16" fill="%23fff" text-anchor="middle" font-weight="bold">Professional Achievement</text></svg>';
+                } else {
+                    this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23f0f0f0"/><text x="200" y="150" font-family="Arial" font-size="16" fill="%23999" text-anchor="middle" dy=".3em">Image not available</text></svg>';
+                }
+            });
+        });
+
+        // Enhanced hover effects for award cards
+        document.querySelectorAll('.award-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Certificate overlay animations
+        document.querySelectorAll('.certificate-item').forEach(item => {
+            const overlay = item.querySelector('.certificate-overlay');
+            if (overlay) {
+                item.addEventListener('mouseenter', function() {
+                    overlay.style.transform = 'translateY(0)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    overlay.style.transform = 'translateY(100%)';
+                });
+            }
+        });
+
+        // Performance optimization: Debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Enhanced loading animations
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Stagger animation delays for award cards
+            const awardCards = document.querySelectorAll('.award-card');
+            awardCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Parallax effect for hero image
+        window.addEventListener('scroll', debounce(() => {
+            const heroImg = document.querySelector('.field-hero img');
+            if (heroImg) {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                heroImg.style.transform = `translateY(${rate}px)`;
+            }
+        }, 16));
+    </script>
+
+</body>
+</html>

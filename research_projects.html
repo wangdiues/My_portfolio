@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research & Projects | Wangdi Wangdi</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Lato with multiple weights -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Library for Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar" id="navbar">
+            <a href="index.html" class="logo">Wangdi</a>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research_projects.html" class="active">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="awards.html">Awards</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="blog.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title" data-aos="fade-down" data-aos-duration="1000">Research & Projects</h1>
+            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Advancing conservation science through spatial ecology, species distribution modeling, and biodiversity research across Bhutan's diverse ecosystems.
+            </p>
+        </div>
+    </section>
+
+    <!-- Featured Research Projects -->
+    <section class="section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-aos="fade-up" data-aos-delay="300">
+                <h2 class="section-title">Featured Research Projects</h2>
+                <p class="section-subtitle">Highlighting key conservation research initiatives with significant ecological impact</p>
+            </div>
+
+            <!-- Featured Projects Grid -->
+            <div class="grid grid-auto-lg">
+                <!-- Featured Project 1: Abies densa -->
+                <div class="card featured" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-header">
+                        <img src="images/abies_habitat_map.jpg" alt="Abies densa Habitat Suitability Map" class="img-responsive img-hover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            <i class="fas fa-tree" style="color: var(--accent-color);"></i>
+                            Spatial Distribution and Climate Resilience of <em>Abies densa</em>
+                        </h3>
+                        <p class="mb-md">Developed high-resolution habitat suitability models for Bhutan Fir using species occurrence data and climate projections. This comprehensive study reveals critical insights into future habitat shifts under climate change scenarios.</p>
+                        
+                        <div class="mb-md">
+                            <h4 style="color: var(--secondary-color); margin-bottom: var(--space-sm);">Key Achievements:</h4>
+                            <ul style="color: var(--text-light); line-height: 1.6;">
+                                <li>MaxEnt modeling with future climate scenarios (SSP2-4.5, SSP5-8.5)</li>
+                                <li>Identified priority conservation zones for species protection</li>
+                                <li>Projected 40% habitat contraction by 2070 under high emission scenarios</li>
+                                <li>Mapped suitable elevation ranges (2800-4200m)</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-md">
+                            <span style="background: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; margin-right: 0.5rem;">Climate Modeling</span>
+                            <span style="background: var(--secondary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; margin-right: 0.5rem;">MaxEnt</span>
+                            <span style="background: var(--primary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Conservation</span>
+                        </div>
+
+                        <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+                            <a href="publications.html" class="btn btn-secondary">
+                                <i class="fas fa-file-alt"></i> View Publication
+                            </a>
+                            <a href="https://www.researchgate.net/profile/Wangdi-Wangdi" target="_blank" class="btn" style="font-size: 0.9rem;">
+                                <i class="fab fa-researchgate"></i> ResearchGate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Project 2: Forest Dynamics -->
+                <div class="card featured" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card-header">
+                        <img src="images/forest_cluster.jpg" alt="Forest Dynamics Analysis" class="img-responsive img-hover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            <i class="fas fa-seedling" style="color: var(--accent-color);"></i>
+                            Forest Dynamics and Vegetation Structure in Unmanaged Forests
+                        </h3>
+                        <p class="mb-md">Comprehensive vegetation surveys across unmanaged forest landscapes in Sarpang, Bhutan. This research reveals natural forest succession patterns and species composition dynamics outside managed forest regimes.</p>
+                        
+                        <div class="mb-md">
+                            <h4 style="color: var(--secondary-color); margin-bottom: var(--space-sm);">Research Highlights:</h4>
+                            <ul style="color: var(--text-light); line-height: 1.6;">
+                                <li>Surveyed 170 tree species, 140 shrubs, 204 ground vegetation species</li>
+                                <li>Classified forests into Subtropical, Warm Broadleaved, and Cool Broadleaved types</li>
+                                <li>CCA analysis revealed elevation, temperature, and evapotranspiration as major drivers</li>
+                                <li>Identified keystone species and indicator taxa for each forest type</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-md">
+                            <span style="background: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; margin-right: 0.5rem;">Vegetation Surveys</span>
+                            <span style="background: var(--secondary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; margin-right: 0.5rem;">CCA Analysis</span>
+                            <span style="background: var(--primary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Forest Ecology</span>
+                        </div>
+
+                        <div style="display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+                            <a href="publications.html" class="btn btn-secondary">
+                                <i class="fas fa-file-alt"></i> Research Report
+                            </a>
+                            <a href="#" class="btn" style="font-size: 0.9rem;">
+                                <i class="fas fa-map"></i> Study Sites
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Research Projects -->
+    <section class="section" style="background: var(--white);">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header" data-aos="fade-up" data-aos-delay="600">
+                <h2 class="section-title">Additional Research Initiatives</h2>
+                <p class="section-subtitle">Supporting studies contributing to biodiversity conservation and ecological understanding</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-auto">
+                <!-- Project 3: Quercus Species -->
+                <div class="card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="card-header">
+                        <img src="images/quercus_kde_map.jpg" alt="Quercus Species Distribution" class="img-responsive img-hover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            <i class="fas fa-leaf"></i>
+                            Climate Niche Modeling of <em>Quercus</em> Species
+                        </h3>
+                        <p class="mb-md">Mapped distributions of dominant <em>Quercus</em> species across Bhutan's elevational gradients. Richness hotspots were identified between 2000–3200 m elevation.</p>
+                        
+                        <div class="mb-md">
+                            <ul style="color: var(--text-light); line-height: 1.6; font-size: 0.95rem;">
+                                <li>MaxEnt modeling with high AUC values (>0.91)</li>
+                                <li>Kernel Density Estimation for diversity hotspots</li>
+                                <li>Climate-driven species zonation analysis</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-md">
+                            <span style="background: var(--secondary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; margin-right: 0.5rem;">Species Distribution</span>
+                            <span style="background: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Hotspot Analysis</span>
+                        </div>
+
+                        <a href="publications.html" class="btn btn-secondary" style="font-size: 0.9rem;">
+                            <i class="fas fa-chart-area"></i> View Results
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Salt Licks -->
+                <div class="card" data-aos="fade-up" data-aos-delay="800">
+                    <div class="card-header">
+                        <img src="images/saltlick_wildlife.jpg" alt="Wildlife at Natural Salt Licks" class="img-responsive img-hover">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            <i class="fas fa-binoculars"></i>
+                            Wildlife Use of Natural Salt Licks
+                        </h3>
+                        <p class="mb-md">Analyzed chemical properties of natural salt licks and documented wildlife usage patterns through extensive camera trap monitoring across multiple sites.</p>
+                        
+                        <div class="mb-md">
+                            <ul style="color: var(--text-light); line-height: 1.6; font-size: 0.95rem;">
+                                <li>10 natural salt lick sites monitored</li>
+                                <li>300+ camera trap days of observation</li>
+                                <li>1400+ animal photos catalogued</li>
+                                <li>Species included Barking Deer, Assamese Macaque, Himalayan Serow</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-md">
+                            <span style="background: var(--primary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; margin-right: 0.5rem;">Camera Trapping</span>
+                            <span style="background: var(--secondary-color); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem;">Wildlife Monitoring</span>
+                        </div>
+
+                        <a href="publications.html" class="btn btn-secondary" style="font-size: 0.9rem;">
+                            <i class="fas fa-file-alt"></i> Published Study
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Future Research Placeholder -->
+                <div class="card" data-aos="fade-up" data-aos-delay="900" style="border: 2px dashed var(--accent-color); background: rgba(125, 180, 108, 0.02);">
+                    <div class="card-content text-center">
+                        <i class="fas fa-flask" style="font-size: 3rem; color: var(--accent-color); margin-bottom: var(--space-sm);"></i>
+                        <h3 class="card-title">Upcoming Research</h3>
+                        <p class="mb-md">New projects in development focusing on elephant spatial ecology, multi-species occupancy modeling, and Rhododendron climate vulnerability.</p>
+                        
+                        <a href="contact.html" class="btn">
+                            <i class="fas fa-handshake"></i> Collaboration Opportunities
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Impact Stats -->
+    <section class="stats-section" data-aos="fade-up" data-aos-delay="1000">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-project-diagram stat-icon"></i>
+                    <span class="stat-number">8+</span>
+                    <div class="stat-label">Active Research Projects</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-map-marked-alt stat-icon"></i>
+                    <span class="stat-number">500+</span>
+                    <div class="stat-label">Study Sites Surveyed</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-database stat-icon"></i>
+                    <span class="stat-number">5000+</span>
+                    <div class="stat-label">Species Records</div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users stat-icon"></i>
+                    <span class="stat-number">15+</span>
+                    <div class="stat-label">Collaborators</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to top button -->
+    <a href="#" class="scroll-to-top" id="scroll-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Wangdi Wangdi | <a href="mailto:wangdiues@gmail.com"><i class="fas fa-envelope"></i> wangdiues@gmail.com</a> | <a href="https://www.linkedin.com/in/wangdi-wangdi/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+    </footer>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100,
+            delay: 100
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        if (mobileMenuToggle && navLinks) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                // Animate hamburger menu
+                const spans = mobileMenuToggle.querySelectorAll('span');
+                if (navLinks.classList.contains('active')) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    spans.forEach(span => {
+                        span.style.transform = '';
+                        span.style.opacity = '';
+                    });
+                }
+            });
+
+            // Close mobile menu when clicking on a link
+            navLinks.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    navLinks.classList.remove('active');
+                    const spans = mobileMenuToggle.querySelectorAll('span');
+                    spans.forEach(span => {
+                        span.style.transform = '';
+                        span.style.opacity = '';
+                    });
+                }
+            });
+        }
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScrollTop = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add scrolled class for styling
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Hide/show navbar on scroll
+            if (currentScroll > lastScrollTop && currentScroll > 200) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+
+        // Scroll to top button functionality
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Error handling for missing images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300"><rect width="400" height="300" fill="%23f0f0f0"/><text x="200" y="150" font-family="Arial" font-size="16" fill="%23999" text-anchor="middle" dy=".3em">Research Image</text></svg>';
+                this.alt = 'Research project visualization';
+            });
+        });
+    </script>
+
+</body>
+</html>
