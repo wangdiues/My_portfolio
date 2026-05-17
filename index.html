@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top">
+    <a class="skip-link" href="#about">Skip to content</a>
     <header class="site-header" id="site-header">
         <nav class="nav-shell" aria-label="Primary navigation">
             <a href="index.html" class="brand" aria-label="Wangdi Wangdi home">
@@ -47,6 +48,11 @@
                     <p class="hero-lede">
                         Senior Forestry Officer and conservation researcher translating ecological evidence into biodiversity, climate resilience, and sustainable forest management decisions across Bhutan.
                     </p>
+                    <div class="hero-proof" aria-label="Professional focus">
+                        <span>Bhutan forest governance</span>
+                        <span>Spatial ecology</span>
+                        <span>Climate resilience</span>
+                    </div>
                     <div class="hero-actions">
                         <a class="btn btn-primary" href="files/Wangdi_CV_2025.pdf" target="_blank" rel="noopener">
                             <i class="fa-solid fa-file-lines" aria-hidden="true"></i>
@@ -59,11 +65,12 @@
                     </div>
                 </div>
                 <aside class="profile-panel" aria-label="Professional snapshot">
-                    <img src="images/profile.jpg" alt="Portrait of Wangdi Wangdi" class="profile-photo">
+                    <img src="images/profile.jpg" alt="Portrait of Wangdi Wangdi" class="profile-photo" loading="eager">
                     <div class="profile-content">
                         <p class="panel-label">Current Role</p>
                         <h2>Senior Forestry Officer</h2>
                         <p>NWFP Section, Forest Resources Planning & Management Division, Department of Forests & Park Services.</p>
+                        <a class="panel-link" href="#contact">Start a conversation</a>
                     </div>
                 </aside>
             </div>
@@ -168,6 +175,32 @@
                         <p>Management plans, climate vulnerability assessments, safeguards documents, and conflict-to-coexistence strategies for field implementation.</p>
                     </article>
                 </div>
+                <div class="feature-showcase" aria-label="Selected evidence portfolio">
+                    <article class="feature-card">
+                        <img src="images/abies_habitat_map.jpg" alt="Habitat suitability map for Bhutan fir">
+                        <div>
+                            <span>Climate modelling</span>
+                            <h3>Habitat suitability and climate resilience</h3>
+                            <p>Species distribution workflows for climate-vulnerable forest systems and conservation prioritization.</p>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <img src="images/saltlick_wildlife.jpg" alt="Wildlife recorded at a natural salt lick">
+                        <div>
+                            <span>Field monitoring</span>
+                            <h3>Wildlife evidence from camera traps</h3>
+                            <p>Field data streams supporting biodiversity inventories, habitat use analysis, and management decisions.</p>
+                        </div>
+                    </article>
+                    <article class="feature-card">
+                        <img src="images/forest_cluster.jpg" alt="Forest structure and vegetation fieldwork">
+                        <div>
+                            <span>Forest ecology</span>
+                            <h3>Vegetation gradients and ecosystem structure</h3>
+                            <p>Forest composition, environmental filtering, and ecological integrity evidence for planning.</p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -194,6 +227,10 @@
                         <h3>Biological Corridor 03 and Sarpang Forest Division planning</h3>
                         <p>Applied conservation planning outputs supporting corridor management, climate resilience, and safeguards documentation.</p>
                     </article>
+                </div>
+                <div class="publication-note">
+                    <strong>Research profile:</strong>
+                    <span>Peer-reviewed publications, manuscripts under review, management plans, and applied strategies spanning wildlife, vegetation, climate vulnerability, and forest governance.</span>
                 </div>
                 <div class="section-action">
                     <a class="btn btn-light" href="publications.html">
@@ -239,6 +276,13 @@
 
         navLinks.addEventListener('click', event => {
             if (event.target.tagName === 'A') {
+                navLinks.classList.remove('is-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') {
                 navLinks.classList.remove('is-open');
                 navToggle.setAttribute('aria-expanded', 'false');
             }
